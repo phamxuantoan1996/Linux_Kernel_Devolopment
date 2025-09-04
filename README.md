@@ -35,6 +35,41 @@ A process begin its life when it is created. To create a process, Linux has 2 sy
 Finally, a program exits via the exit() system call. This function terminates the process and frees all its resources. A parent process can inquire about status of a terminated child via wait() system call, which enables a process to wait for the temination of a specific process. When a process exits, it is placed into a special zombie state that represents terminated processes until the parent call wait() or waitpid().
 
 # 2) Process Descriptor and Task Structure
+- The kernel stores the list of processes in a circular doubly linked list called the task list.
+- Each element in the task list is a process descriptor of the type struct task_struct, which
+is defined in <linux/sched.h>.The process descriptor contains all the information about
+a specific process.
+# Allocating the Process Descriptor
+# Storing the Process Descriptor
+- The system identifies processes by a unique process identification value or PID.The PID is a
+numerical value represented by the opaque type4 pid_t, which is typically an int.
+
+- The kernel stores this value as pid inside each process descriptor.
+# Process state
+- The state field of the process descriptor describes the current condition of the process.
+- Each process on the system is in exactly one of five different states.This value is represented by one of five flags:
++ TASK_RUNNING : The process is runnable; it is either currently running or on a run-queue waiting to run. This is the only possible state for a process executing in user-space; it can also apply to a process in kernel-space that is actively running.
+
++ TASK_INTERRUPTIBLE : The process is sleeping, (that is, it is blocked), waiting for some condition to exist. When this condition exists, the kernel sets process's state to TASK_RUNNING. The process also awakes prematurely and becomes runnale if it receives a signal.
+
++ TASK_UNINTERRUPTIBLE : This state is identical TASK_INTERRUPTIBLE except that it does not wake up and become runnable wait if it reiceives a signal. This is used in situations where the process must wait without interruption or when the event is expected to occur quite quickly. Because the task does not respond to signal in this state, TASK_UNITERRUPTIBLE is less often used than TASK_INTERRUPTIBLE.
+
++ __TASK_STOPPED : Process execution has stopped; the task is not running nor is it eligible to run.This occurs if the task receives the SIGSTOP, SIGTSTP, SIGTTIN, or SIGTTOU signal or if it receives any signal while it is being debugged.
+
+# 3) Manipulating the Current Process State.
+Kernel code often needs to change a process’s state.The preferred mechanism is using
+
+set_task_state(task, state);
+
+set_current_state(state); <=> set_task_state(current,state);
+
+# Process Context
+- user-space
+- kernel-space
+- system call
+
+
+
 
 
 

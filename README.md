@@ -64,9 +64,30 @@ set_task_state(task, state);
 set_current_state(state); <=> set_task_state(current,state);
 
 # Process Context
-- user-space
-- kernel-space
-- system call
+- Normal program execution occurs in user-space.
+
+- When a program executes a system call or triggers an exception, it enters kernel-space. This time, the kernel is said to be "executing on behalf of the process" and is in process context.
+ 
+- Upon exiting the kernel, the process resumes execution in user-space, unless a higher-priority process has become runnable in the interim, in which case the scheduler is invoked to select the higher priority process.
+
+- System calls and exception handlers are well-defined interfaces into the kernel.
+
+- A process can begin executing in kernel-space only through one of these interfaces. All access to the kernel is through these interfaces.
+
+* Note : Other than process context there is interrupt context. In interrupt context, the system is not running on behalf of a process but is executing an interrupt handler. No process is tie to interrupt handlers.
+
+# The Process Family Tree
+- All processes are descendants of the init process, whose PID is one.
+
+- The kernel starts init in the last step of the boot process.
+
+- Init process reads initscripts and executes nore program, eventually completing the boot process.
+
+- Every process has one parent process. Likewise, every process has zero or more childrent.
+
+- The relationship between processes is stored in the process descriptor. Each task struct has a pointer to the parent's task struct, named "parent", and a list of childrent, named "childrent"
+
+
 
 
 

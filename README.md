@@ -87,6 +87,16 @@ set_current_state(state); <=> set_task_state(current,state);
 
 - The relationship between processes is stored in the process descriptor. Each task struct has a pointer to the parent's task struct, named "parent", and a list of childrent, named "childrent"
 
+# 4) Process Creation
+- Process creation in Unix is unique.
+- Most operating system implement a spawn mechanism to create a new process in new address space, read in an executable, and begin executing it. Unix takes the unusual approach of separating these steps in to distinct functions : fork() and exec().
+
+- fork() creates a child process that is a copy of the current task. It differs from the parent only in its PID , its PPID, and certain resources and statistics, such as pending signals, which are not inherited.
+
+- exec() loads a new executable into the address space and begins executing it.
+
+- The combination of fork() followed by exec() is similar to the single function most operating systems provide.
+
 
 
 

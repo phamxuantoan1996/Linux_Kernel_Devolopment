@@ -1,0 +1,3 @@
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Create_Synch_Process/build/CMakeFiles/app.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Create_Synch_Process/build/CMakeFiles/edit_cache.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Create_Synch_Process/build/CMakeFiles/rebuild_cache.dir

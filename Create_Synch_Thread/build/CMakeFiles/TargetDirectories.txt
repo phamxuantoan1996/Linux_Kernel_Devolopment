@@ -1,0 +1,3 @@
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Process_And_Thread_Creation/build/CMakeFiles/app.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Process_And_Thread_Creation/build/CMakeFiles/edit_cache.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Process_And_Thread_Creation/build/CMakeFiles/rebuild_cache.dir

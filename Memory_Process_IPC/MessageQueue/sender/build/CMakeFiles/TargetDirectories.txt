@@ -1,0 +1,3 @@
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/MessageQueue/sender/build/CMakeFiles/sender.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/MessageQueue/sender/build/CMakeFiles/edit_cache.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/MessageQueue/sender/build/CMakeFiles/rebuild_cache.dir

@@ -110,12 +110,12 @@ int main() {
     printf("Received: ID=%d, Grade=%.2f, Name=%s\n", s2.id, s2.grade, s2.name);
     printf("Number of message remaining is %ld\n",attr.mq_curmsgs);
     mq_close(mq);
-    // if (attr.mq_curmsgs == 0)
-    // {
-    //     /* code */
-    //     printf("Unlink message queue.\n");
-    //     mq_unlink("/myqueue"); // Remove queue
+    if (attr.mq_curmsgs == 0)
+    {
+        /* code */
+        printf("Unlink message queue.\n");
+        mq_unlink("/myqueue"); // Remove queue
 
-    // }
+    }
     return 0;
 }

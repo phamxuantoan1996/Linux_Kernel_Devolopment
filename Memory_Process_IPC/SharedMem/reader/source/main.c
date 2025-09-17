@@ -72,7 +72,7 @@ int main(int argc,char *argv[])
         sem_post(mutex); //allow other processes to execute in this critial section
         break;
     }
-    
+
     //clean up 
     munmap(shared,SIZE);
     close(shm_fd);

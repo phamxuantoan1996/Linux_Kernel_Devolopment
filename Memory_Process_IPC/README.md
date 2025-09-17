@@ -36,7 +36,7 @@ IPC (Inter-Process Communication) : This is mechanisms provided by the OS that a
 
 # 3.1. Type of IPC in Linux
 
-# Message Queues
+# 3.2 Message Queues
 
 A message queue is a kernel-managed linked list of messages used for asynchronous communication between processes.
 
@@ -48,9 +48,9 @@ Each message has:
 
 # Two APIs in Linux:
 
-# + System V Message Queues → (msgget, msgsnd, msgrcv, msgctl)
+# a) System V Message Queues → (msgget, msgsnd, msgrcv, msgctl)
 
-# + POSIX Message Queues → (mq_open, mq_send, mq_receive, mq_close, mq_unlink)
+# b) POSIX Message Queues → (mq_open, mq_send, mq_receive, mq_close, mq_unlink)
 
 You can get number of message in a message queue by reading "mq_struct". Before read "mq_struct",you need to invoke mq_getattr() function.
 
@@ -77,3 +77,46 @@ This can block indefinitely unless you use mq_timedsend() with a timeout.
 Non-blocking mode (O_NONBLOCK)
 + If the queue is full, mq_send() returns -1 immediately.
 + errno = EAGAIN (“try again later”).
+
+# 3.3 Shared Memory
+
+# a) Theory of Shared Memory in IPC
+
+# Introduce : 
+Shared memory is one of the fastest IPC mechanisms because processes can directly access the same memory region with out copying data back and forth through the kernel.
+
+# Definition :
+Shared memory is a block of physical memory mapped into the address space of multiple processes. All participating processes can read/write to this region.
+
+# Why does Share memory fast?
++ Unlike pipes, sockets, or message queues, shared memory doesn’t require copying data through the kernel.
+
++ Both processes just read/write the same memory region.
+
+# Problem : Synchronization
++ Both processes just read/write the same memory region. Typically done using semaphores, mutexes, or condition variables.
+
+# Types in Linux
++ System V Shared Memory (shmget, shmat, shmdt, shmctl)
++ POSIX Shared Memory (shm_open, mmap, ftruncate, shm_unlink)
+
+# b) Theory of semaphore.
+
+# Introduce
+A semaphore is a kernel-managed counter used to control access to resource.
+Two main types:
++ Binary semaphore (mutex-like) -> only 0 or 1 (unlock or lock)
++ Counting semaphore -> allows multiple processes to access limited instances of a resource (e.g., 5 database connections).
+
+# Using Semaphore with Shared Memory
+
+Typical roles:
++ Mutex Semaphore : Ensures only one writer (or reader) enters the critical section. Protects shared data from concurrent modifications.
+
++ Synchronization Semaphore:
+Writer → Reader: "New data is available."
+Reader → Writer: "I have consumed the data."
+
+
+
+

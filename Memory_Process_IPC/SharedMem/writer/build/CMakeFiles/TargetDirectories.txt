@@ -1,0 +1,3 @@
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/writer/build/CMakeFiles/writer.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/writer/build/CMakeFiles/edit_cache.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/writer/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/reader.dir/main.c.o -o reader  -lrt -lpthread 

@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/writer.dir/main.c.o -o writer  -lrt -lpthread 

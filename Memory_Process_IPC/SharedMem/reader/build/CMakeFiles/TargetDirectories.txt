@@ -1,0 +1,3 @@
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/reader/build/CMakeFiles/reader.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/reader/build/CMakeFiles/edit_cache.dir
+/home/phamtoan/Documents/Linux_Kernel_Devolopment/Memory_Process_IPC/SharedMem/reader/build/CMakeFiles/rebuild_cache.dir
